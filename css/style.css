@@ -1,21 +1,93 @@
-body {
+body, html {
     margin:0;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
 
 }
 
-.hero {
-    background-image: url()
+h1 {
+font-family: helvetica;
+font-size: 74px;
 }
+
+h2 {
+  font-family: helvetica;
+  font-size: 58px;
+  margin-top: 33%;
+}
+
 
 model-viewer {
-    background-color: rgb(71, 120, 67);
     width: 100%;
     height: 33rem; 
 
 }
 
 
-.gallery {
-    display: grid; 
-    grid-template-columns: 1fr 1fr;
+.hero-image {
+  background-image: url("../posters/Marquee.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  color: rgb(32, 17, 2);
+  margin-top:-53px;
+  padding-top: 30px;
+
+}
+
+.gallery-container {
+  display: flex; 
+  flex-direction: row; 
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 50px;
+  margin-right: 50px;
+
+}
+
+#gallery-name1, #gallery-name2, #gallery-name3, #gallery-name4 {
+  width: 50%;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  height: 33rem; 
+  text-align: center;
+
+}
+
+#gallery-model1, #gallery-model2, #gallery-model3, #gallery-model4 {
+  width: 50%;
+  padding: 0px 0px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+#gallery-name1, #gallery-model1 {
+  background-color: beige;
+  color: rgb(70, 70, 0);
+
+}
+
+#gallery-name2, #gallery-model2 {
+  background-color: rgb(220, 241, 245);
+  color: rgb(0, 52, 62);
+}
+
+#gallery-name3, #gallery-model3 {
+  background-color: rgb(245, 235, 220);
+  color: rgb(69, 42, 0)
+
+}
+
+#gallery-name4, #gallery-model4 {
+  background-color: rgb(220, 233, 245);
+  color: rgb(0, 35, 68);
+  margin-bottom: 120px;
+
 }

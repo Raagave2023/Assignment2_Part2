@@ -5,37 +5,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Class Exercise</title>
+    <title>Assignment 2, Stage 2</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script src="script.js"></script>
- 
-
 </head>
+
 <body>
-    <div class="gallery">
-        <h2>Avona Chair</h2>
-        <model-viewer camera-controls touch-action="pan-y" id="shadow-intensity-demo" shadow-intensity="0.9" shadow-softness="0.5" src="./models/Avona.glb"
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Humber College <br> Industrial Design Showcase</h1>
+        </div>
+    </div>
+
+    <div class="gallery-container">
+       
+        <div id="gallery-name1">    
+            <h2>Sitzplatz</h2>
+        </div>
+        
+        <div id="gallery-model1">    
+            <model-viewer src="./models/Sitzplatz.glb"
                 alt="Chair designed by Humber Students"
                 ar
-                poster="forest.jpg"
+                poster="./posters/Sitzplatz_V1.png"
+                auto-rotate
                 camera-controls>
-                <button type="button" disabled class="Hotspot" slot="hotspot-1" data-position="-0.5295701213584247m 0.8398986723533861m 0.5228164630129348m" data-normal="0.9370116676554555m 0.34681264404008877m 0.04159476663553687m" data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">$78</div>
-
+                <button class="Hotspot" slot="hotspot-1" data-position="0.1950833519140214m 0.8559515705231197m -0.28087986399529274m" data-normal="0.35861021548418437m 0.24005925755549876m 0.9020921605979566m" data-visibility-attribute="visible">
+                    <div class="HotspotAnnotation">$109</div>
                 </button>
-        </model-viewer>
-    </div>
+            </model-viewer>
+        </div>
+        
 
-    <div class="gallery">    
-        <h2>JRMY Chairr</h2>
+        <div id="gallery-model2">    
+            <model-viewer src="./models/Onsilla.glb"
+                alt="Chair designed by Humber Students"
+                ar
+                poster="./posters/Onsilla_V1.png"
+                auto-rotate
+                camera-controls>
+                <button class="Hotspot" slot="hotspot-1" data-position="0.09579313031230546m 1.0828015066069112m -0.28889720299423316m" data-normal="0.04782796478532858m -0.3766509094143483m 0.9251197642585731m" data-visibility-attribute="visible">
+                    <div class="HotspotAnnotation">$78</div>
+                </button>
+            </model-viewer>
+        </div>
+    
+        <div id="gallery-name2">    
+            <h2>Onsilla</h2>
+        </div>
 
-        <model-viewer src="./models/JRMY.glb"
-            alt="Chair designed by Humber Students"
-            ar
-            auto-rotate
+        <div id="gallery-name3">    
+            <h2>Picard</h2>
+        </div>
+
+        <div id="gallery-model3">    
+            <model-viewer src="./models/Picard.glb"
+                alt="Chair designed by Humber Students"
+                ar
+                poster="./posters/Picard_V1.png"
+                auto-rotate
+                camera-controls>
+                    <button class="Hotspot" slot="hotspot-2" data-position="0.31103929280163367m 0.8452852313025316m 0.14431595812917997m" data-normal="-0.6577246182307855m 0.3802574535109097m 0.6502327242015478m" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">$92</div>
+                    </button>
+                </model-viewer>
+                
+            </model-viewer>
+        </div>
+
+        <div id="gallery-model4">
+            <model-viewer id="sphere" camera-controls touch-action="pan-y" interaction-prompt="none" src="./models/Avona.glb" ar alt="Chair designed by Humber Students"
+            poster="./posters/Avona_V2.png"
             camera-controls>
-        </model-viewer>
+            <button type="button" class="Hotspot" slot="hotspot-1" data-position="-0.5295701213584247m 0.8398986723533861m 0.5228164630129348m" data-normal="0.9370116676554555m 0.34681264404008877m 0.04159476663553687m" data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">$150</div>
+            </button>
+                <div class="controls">
+                  <div>
+                    <p>Metalness: <span id="metalness-value"></span></p>
+                    <input id="metalness" type="range" min="0" max="1" step="0.01" value="1">
+                  </div>
+                  <div>
+                    <p>Roughness: <span id="roughness-value"></span></p>
+                    <input id="roughness" type="range" min="0" max="1" step="0.01" value="0">
+                  </div>
+                </div>
+            
+              </model-viewer>
+              <script>
+              const modelViewerParameters = document.querySelector("model-viewer#sphere");
+              
+              modelViewerParameters.addEventListener("load", (ev) => {
+              
+                let material = modelViewerParameters.model.materials[0];
+              
+                let metalnessDisplay = document.querySelector("#metalness-value");
+                let roughnessDisplay = document.querySelector("#roughness-value");
+              
+                metalnessDisplay.textContent = material.pbrMetallicRoughness.metallicFactor;
+                roughnessDisplay.textContent = material.pbrMetallicRoughness.roughnessFactor;
+              
+              
+                document.querySelector('#metalness').addEventListener('input', (event) => {
+                  material.pbrMetallicRoughness.setMetallicFactor(event.target.value);
+                  metalnessDisplay.textContent = event.target.value;
+                });
+              
+                document.querySelector('#roughness').addEventListener('input', (event) => {
+                  material.pbrMetallicRoughness.setRoughnessFactor(event.target.value);
+                  roughnessDisplay.textContent = event.target.value;
+                });
+              });
+              </script>
+        </div>
+
+        <div id="gallery-name4">    
+            <h2>Avona</h2>
+        </div>
+
+
     </div>
+
     
 </body>
 </html>
