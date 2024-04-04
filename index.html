@@ -11,88 +11,141 @@
 </head>
 
 <body>
+
+<!--Content Above Fold-->
     <div class="hero-image">
         <div class="hero-text">
             <h1>Humber College <br> Industrial Design Showcase</h1>
         </div>
     </div>
 
+<!--Decorative 3D Models-->
+
+    <div class= "decorative-container">
+        <div id=decmod1>
+              <model-viewer camera-controls touch-action="pan-y" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(0deg + env(window-scroll-y) * 180deg) calc(5m - env(window-scroll-y) * 10m)" src="./models/Sitzplatz.glb" alt="Sitzplatz chair designed by Humber students."  poster= "./posters/Sitzplatz_V1.png"></model-viewer>
+        </div>
+
+        <div id=decmod2>
+            <model-viewer camera-controls touch-action="pan-y" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(0deg + env(window-scroll-y) * 180deg) calc(5m - env(window-scroll-y) * 10m)" src="./models/Onsilla.glb" alt="Onsilla chair designed by Humber students."  poster= "./posters/Onsilla_V1.png"></model-viewer>
+        </div>
+
+        <div id=decmod3>
+            <model-viewer camera-controls touch-action="pan-y" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(0deg + env(window-scroll-y) * 180deg) calc(5m - env(window-scroll-y) * 10m)" src="./models/Picard.glb" alt="Picard chair designed by Humber students."  poster= "./posters/Picard_V1.png"></model-viewer>
+        </div>
+
+        <div id=decmod4>
+            <model-viewer camera-controls touch-action="pan-y" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(0deg + env(window-scroll-y) * 180deg) calc(5m - env(window-scroll-y) * 10m)" src="./models/Avona.glb" alt="Avona chair designed by Humber students."  poster= "./posters/Avona_V2.png"></model-viewer>
+        </div>
+
+    </div>
+
+
+<!--Sitzplatz Chair Text-->
+
     <div class="gallery-container">
        
         <div id="gallery-name1">    
+
+          <div id="myDIV1a">
             <h2>Sitzplatz</h2>
+            <p class="tagline">Where style meets comfort</p>
+          </div>
+
+          <div id="myDIV1b">
+            <h2>Sitzplatz</h2>
+            <p class="tagline">Where style meets comfort</p>
+            <p class="price">$105</p>
+            <p class="description">Sink into comfort with our green upholstered chair. Paired perfectly with a dark walnut table featuring a sleek. This elegant piece adds a pop of color to any living space while offering exceptional support and sophistication. Experience the perfect blend of comfort and aesthetics with our meticulously crafted chair.</p>
+            <p>Designed by Lilian, Roxy, and Mitual.</p>
+
+          </div>
         </div>
+
+<!--Sitzplatz Chair Model-->
+
         
         <div id="gallery-model1">    
-            <model-viewer src="./models/Sitzplatz.glb"
-                alt="Chair designed by Humber Students"
-                ar
-                poster="./posters/Sitzplatz_V1.png"
-                auto-rotate
-                camera-controls>
-                <button class="Hotspot" slot="hotspot-1" data-position="0.1950833519140214m 0.8559515705231197m -0.28087986399529274m" data-normal="0.35861021548418437m 0.24005925755549876m 0.9020921605979566m" data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">$109</div>
+            <model-viewer id="tone-demo" tone-mapping="commerce" camera-controls shadow-intensity="1" touch-action="pan-y" auto-rotate src="./models/Sitzplatz.glb" ar alt="Sitzplatz chair designed by Humber students."  poster= "./posters/Sitzplatz_V1.png">
+
+                <button onclick="myFunction1()" class="Hotspot" slot="hotspot-1" data-position="0.2203585729908965m 0.858143091326582m -0.29402350705269154m" data-normal="0.4879827685827186m 0.16142880762001094m 0.8577957551985942m" data-visibility-attribute="visible">
+                  <div class="HotspotAnnotation">About Chair</div>
                 </button>
-            </model-viewer>
+                
+                <button class="Hotspot" slot="hotspot-4" data-position="0.5388565379955368m 0.5781396230972559m 0.12763750420822317m" data-normal="0.35663453970480974m -0.013196853365748332m 0.9341507630734888m" data-visibility-attribute="visible">
+                  <a href="https://www.ikea.com/ca/en/p/stockholm-coffee-table-walnut-veneer-70239710/">
+                  <div class="HotspotAnnotation">Styled With</div></a>
+                </button>
+            
+                <p>Tone Mapping:</p>
+                <select id="tone">
+                  <option value="commerce">Commerce</option>
+                  <option value="aces">ACES</option>
+                  <option value="agx">AgX</option>
+                </select>
+              </model-viewer>
+
+            <script>
+            (() => {
+              const modelViewer = document.querySelector('#tone-demo');
+              const tone = document.querySelector('#tone');
+              const model = document.querySelector('#model');
+              
+              tone.addEventListener('input',() => {
+                modelViewer.toneMapping = tone.value;
+              });
+            
+              model.addEventListener('input',() => {
+                modelViewer.src = "../../assets/ShopifyModels/" + model.value + ".glb";
+              });
+            })();
+            </script>
+
+              <script>
+
+                document.getElementById("myDIV1b").style.display = "none";
+
+                          function myFunction1() {
+                document.getElementById("myDIV1a").style.display = "none";
+                document.getElementById("myDIV1b").style.display = "block";
+
+              }
+
+              </script>
+
+              
         </div>
         
+<!--Onsilla Chair Model-->
 
         <div id="gallery-model2">    
-            <model-viewer src="./models/Onsilla.glb"
-                alt="Chair designed by Humber Students"
-                ar
-                poster="./posters/Onsilla_V1.png"
-                auto-rotate
-                camera-controls>
-                <button class="Hotspot" slot="hotspot-1" data-position="0.09579313031230546m 1.0828015066069112m -0.28889720299423316m" data-normal="0.04782796478532858m -0.3766509094143483m 0.9251197642585731m" data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">$78</div>
-                </button>
-            </model-viewer>
-        </div>
-    
-        <div id="gallery-name2">    
-            <h2>Onsilla</h2>
-        </div>
-
-        <div id="gallery-name3">    
-            <h2>Picard</h2>
-        </div>
-
-        <div id="gallery-model3">    
-            <model-viewer src="./models/Picard.glb"
-                alt="Chair designed by Humber Students"
-                ar
-                poster="./posters/Picard_V1.png"
-                auto-rotate
-                camera-controls>
-                    <button class="Hotspot" slot="hotspot-2" data-position="0.31103929280163367m 0.8452852313025316m 0.14431595812917997m" data-normal="-0.6577246182307855m 0.3802574535109097m 0.6502327242015478m" data-visibility-attribute="visible">
-                        <div class="HotspotAnnotation">$92</div>
-                    </button>
-                </model-viewer>
-                
-            </model-viewer>
-        </div>
-
-        <div id="gallery-model4">
-            <model-viewer id="sphere" camera-controls touch-action="pan-y" interaction-prompt="none" src="./models/Avona.glb" ar alt="Chair designed by Humber Students"
-            poster="./posters/Avona_V2.png"
+            <model-viewer id="sphere" camera-controls touch-action="pan-y" interaction-prompt="none" src="./models/Onsilla.glb" auto-rotate ar alt="Onsilla chair designed by Humber students."
+            poster="./posters/Onsilla_V1.png"
             camera-controls>
-            <button type="button" class="Hotspot" slot="hotspot-1" data-position="-0.5295701213584247m 0.8398986723533861m 0.5228164630129348m" data-normal="0.9370116676554555m 0.34681264404008877m 0.04159476663553687m" data-visibility-attribute="visible">
-                <div class="HotspotAnnotation">$150</div>
-            </button>
+
+            <button onclick="myFunction2()" class="Hotspot" slot="hotspot-1" data-position="0.332434867752149m 1.109538975442044m 0.18276510097769727m" data-normal="-0.9856902630155929m 0.12515284837622437m -0.1129224067205846m" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">About Chair </div>
+           </button>
+          
+          <button class="Hotspot" slot="hotspot-2" data-position="-0.04982438438863701m 0.4732420770997996m 0.42380628653221447m" data-normal="-0.4875830491747332m 0.48459477185315847m 0.7262442269994683m" data-visibility-attribute="visible">
+            <a href="https://www.ikea.com/ca/en/p/skruvby-cabinet-with-doors-black-blue-30520358/">
+              <div class="HotspotAnnotation">Styled With</div></a>
+          </button>
+       
                 <div class="controls">
                   <div>
-                    <p>Metalness: <span id="metalness-value"></span></p>
-                    <input id="metalness" type="range" min="0" max="1" step="0.01" value="1">
+                    <p class="sliders">Metalness: <span id="metalness-value"></span></p>
+                    <input class="sliders" id="metalness" type="range" min="0" max="1" step="0.01" value="1">
                   </div>
                   <div>
-                    <p>Roughness: <span id="roughness-value"></span></p>
-                    <input id="roughness" type="range" min="0" max="1" step="0.01" value="0">
+                    <p class="sliders">Roughness: <span id="roughness-value"></span></p>
+                    <input class="sliders" id="roughness" type="range" min="0" max="1" step="0.01" value="0">
                   </div>
                 </div>
             
               </model-viewer>
-              <script>
+
+             <script>
               const modelViewerParameters = document.querySelector("model-viewer#sphere");
               
               modelViewerParameters.addEventListener("load", (ev) => {
@@ -117,11 +170,200 @@
                 });
               });
               </script>
+
         </div>
 
-        <div id="gallery-name4">    
-            <h2>Avona</h2>
+ <!--Onsilla Chair Text-->
+    
+        <div id="gallery-name2"> 
+          
+          <div id="myDIV2a">
+            <h2>Onsilla</h2>
+            <p class="tagline">One way to stand out.</p>
+          </div>
+
+          <div id="myDIV2b">
+            <h2>Onsilla</h2>
+            <p class="tagline">One way to stand out.</p>
+            <p class="price">$95</p>
+            <p class="description">The Onsilla is more than just a piece of furniture; it's a statement of mindful living. Its understated elegance and organic charm make it a versatile addition to offices, lounges, or a space where relaxation and style converge. Elevate your surroundings with Onsilla Lounge Chair.</p>
+            <p>Designed by Ariadna V., Evan H., and Louis S.</p>
+          </div>
+
+
+          <script>
+
+            document.getElementById("myDIV2b").style.display = "none";
+
+                      function myFunction2() {
+            document.getElementById("myDIV2a").style.display = "none";
+            document.getElementById("myDIV2b").style.display = "block";
+
+          }
+
+          </script>
+
         </div>
+
+<!--Picard Chair Text-->
+
+        <div id="gallery-name3">    
+          <div id="myDIV3a">
+            <h2>Picard</h2>
+            <p class="tagline">An elevated chair for an elevated workspace</p>
+          </div>
+          <div id="myDIV3b">
+            <h2>Picard</h2>
+            <p class="tagline">An elevated chair for an elevated workspace</p>
+            <p class="price">$120</p>
+            <p class="description">Picard is a versatile lounge chair that blends seamlessly into various enironments. Picard's spacious seat and adaptable design cater to various users and styles. Which a choice of colours and textures, it effortlessly complements any office or lounge. Balancing versatility with distinction, Picard is a seamless addition to any workspace.</p>
+            <p>Designed by Benjamin K., Erika Z., and Marcus M.</p>
+          </div>
+        </div>
+
+<!--Picard Chair Model-->
+
+        <div id="gallery-model3">    
+            
+          <div id= "beigeleather">
+          <model-viewer src="./models/Picard.glb" alt="Picard chair designed by Humber students." ar poster="./posters/Picard_V1.png" auto-rotate camera-controls>
+
+                <div class="controls" id="material-controls">
+                  <button class=button-styles3 onclick="beigeFunction()">Beige Leather</button>
+                  <button class=button-styles3 onclick="purpleFunction()">Purple Knit</button>
+                </div>
+
+                <button onclick="myFunction3()" class="Hotspot" slot="hotspot-1" data-position="0.3486570766910877m 0.8054858739066384m 0.18666929431482782m" data-normal="-0.3317678756417831m 0.16169615744370594m 0.9294000373144381m" data-visibility-attribute="visible">
+                  <div class="HotspotAnnotation">About Chair</div>
+                </button>
+                
+                <button class="Hotspot" slot="hotspot-2" data-position="-0.12185128871171091m 0.5790667101736438m 0.5525312717190378m" data-normal="-0.6812422858019128m -0.036319360368353m 0.7311565168264719m" data-visibility-attribute="visible">
+                  <a href="https://www.ikea.com/ca/en/p/vilto-shelf-unit-birch-90344456/">
+                    <div class="HotspotAnnotation">Styled With</div></a>
+                </button>
+           
+                </model-viewer>
+            </div>
+
+            <div id= "purpleknit">
+              <model-viewer src="./models/Picard_alt_texture.glb" alt="Picard chair designed by Humber students." ar poster="./posters/Picard_V1.png" auto-rotate camera-controls>
+    
+                    <div class="controls" id="material-controls">
+                      <button class=button-styles3 onclick="beigeFunction()">Beige Leather</button>
+                      <button class=button-styles3 onclick="purpleFunction()">Purple Knit</button>
+                    </div>
+
+                    <button onclick="myFunction3()" class="Hotspot" slot="hotspot-1" data-position="-0.5277291912074289m 0.7985805058960026m -1.153276474363931m" data-normal="-0.7808634274475318m -0.018188925755659405m 0.6244369228791236m" data-visibility-attribute="visible">
+                      <div class="HotspotAnnotation">About Chair</div>
+                  </button>
+                  
+                  <button class="Hotspot" slot="hotspot-2" data-position="-0.9525374306835721m 0.632999619925587m -0.7559089466967843m" data-normal="-0.7209943879074471m 0.11469438781771664m 0.6833829746262964m" data-visibility-attribute="visible">
+                    <a href="https://www.ikea.com/ca/en/p/vilto-shelf-unit-birch-90344456/">
+                      <div class="HotspotAnnotation">Styled With</div></a>
+                  </button>
+
+                    </model-viewer>
+                </div>
+
+            
+
+                <script>
+
+                      document.getElementById("myDIV3b").style.display = "none";
+
+                                function myFunction3() {
+                      document.getElementById("myDIV3a").style.display = "none";
+                      document.getElementById("myDIV3b").style.display = "block";
+                    
+                    }
+
+
+                    document.getElementById("purpleknit").style.display = "none";
+
+                        function purpleFunction() {
+                    document.getElementById("beigeleather").style.display = "none";
+                    document.getElementById("purpleknit").style.display = "block";
+
+                    }
+
+
+                        function beigeFunction() {
+                    document.getElementById("purpleknit").style.display = "none";
+                    document.getElementById("beigeleather").style.display = "block";
+
+                    }
+                        
+                 </script>
+                
+        </div>
+
+
+<!--Avona Chair Model-->
+
+        <div id="gallery-model4">              
+              
+              <model-viewer id="color" camera-controls touch-action="pan-y" interaction-prompt="none" src="./models/Avona.glb" ar alt="Avona chair designed by Humber students." auto-rotate poster="./posters/Avona_V2.png">
+                <div class="controls" id="color-controls">
+                    <button class=button-styles4 data-color="">Ocean</button>
+                    <button class=button-styles4 data-color="#FFE97E">Forest</button>
+                    <button class=button-styles4 data-color="#FF7E7E">Plum</button>
+                </div>
+
+                <button onclick="myFunction4()" class="Hotspot" slot="hotspot-3" data-position="-0.5682070998274467m 0.8474582449851191m 0.7109644961479482m" data-normal="0.6110029488548235m 0.3032137194533812m 0.7312570251463956m" data-visibility-attribute="visible">
+                    <div class="HotspotAnnotation">About Chair</div>
+                </button>
+                
+                <button class="Hotspot" slot="hotspot-4" data-position="0.1851459620127891m 0.38956516556217524m 0.7413251874168281m" data-normal="0.3103183961195449m 0.1845298231842744m 0.9325509301831046m" data-visibility-attribute="visible">
+                  <a href="https://www.ikea.com/ca/en/p/vollerslev-rug-high-pile-white-60492542/">
+                    <div class="HotspotAnnotation">Styled With</div></a>
+                </button>
+
+              </model-viewer>
+
+
+
+
+              <script>
+              const modelViewerColor = document.querySelector("model-viewer#color");
+              document.querySelector('#color-controls').addEventListener('click', (event) => {
+                const colorString = event.target.dataset.color;
+                const [material] = modelViewerColor.model.materials;
+                material.pbrMetallicRoughness.setBaseColorFactor(colorString);
+              });
+              </script>   
+
+
+
+        </div>
+
+<!--Avona Chair Text-->
+
+        <div id="gallery-name4">   
+          <div id="myDIV4a"> 
+            <h2>Avona</h2>
+            <p class="tagline">Dancing on the edge of comfort and elegance</p>
+          </div>  
+          <div id="myDIV4b">
+            <h2>Avona</h2>
+            <p class="tagline">Dancing on the edge of comfort and elegance</p>
+            <p class="price">$143</p>
+            <p class="description">Indulge in the plush comfort of our soft lounge chair, designed to cradle you in relaxation. Its sleek silhouette effortlessly complements any modern living space, adding a touch of elegance. Crafted with meticulous attention to detail, this chair promises style and unparalleled comfort.</p>
+            <p>Designed by Elara S., Jasper W., and Lila M.</p>
+          </div>
+        </div>
+
+        
+        <script>
+
+          document.getElementById("myDIV4b").style.display = "none";
+
+                    function myFunction4() {
+          document.getElementById("myDIV4a").style.display = "none";
+          document.getElementById("myDIV4b").style.display = "block";
+        
+        }
+
+        </script>
 
 
     </div>
@@ -129,3 +371,13 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
